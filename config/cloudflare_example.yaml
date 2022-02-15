@@ -1,0 +1,3 @@
+email: someone@something.com
+api_key: some_global_api_key_from_cloudflare
+api_token: some_random_hash_token
