@@ -1,12 +1,10 @@
 import os
 import yaml
 import requests
-import logging  # rm
 import textwrap
 import json
 
 from prettytable import PrettyTable
-from http.client import HTTPConnection  # rm
 from typing import List, Dict, Tuple, Any
 
 
@@ -82,16 +80,6 @@ class Cloudflare:
     @property
     def current_ip(self) -> str:
         return self.session.get("https://api.ipify.org").text
-
-    def debug_requests_on(self):
-        """Switches on logging of the requests module."""
-        HTTPConnection.debuglevel = 1
-
-        logging.basicConfig()
-        logging.getLogger().setLevel(logging.DEBUG)
-        requests_log = logging.getLogger("requests.packages.urllib3")
-        requests_log.setLevel(logging.DEBUG)
-        requests_log.propagate = True
 
     def load_credentials(self) -> str:
         """
